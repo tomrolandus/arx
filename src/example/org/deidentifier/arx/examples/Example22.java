@@ -1,13 +1,13 @@
 /*
  * ARX: Powerful Data Anonymization
  * Copyright 2012 - 2018 Fabian Prasser and contributors
- * 
+ *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
- * 
+ *
  * http://www.apache.org/licenses/LICENSE-2.0
- * 
+ *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -88,16 +88,16 @@ public class Example22 extends Example {
      * @throws IOException
      */
     public static void main(String[] args) throws IOException {
-        
+
         Data data = createData("adult");
         data.getDefinition().setAttributeType("occupation", AttributeType.SENSITIVE_ATTRIBUTE);
-        
+
         ARXAnonymizer anonymizer = new ARXAnonymizer();
         ARXConfiguration config = ARXConfiguration.create();
         config.addPrivacyModel(new EntropyLDiversity("occupation", 5));
         config.setSuppressionLimit(0.04d);
         config.setQualityModel(Metric.createEntropyMetric());
-        
+
         // Anonymize
         ARXResult result = anonymizer.anonymize(data, config);
         printResult(result, data);

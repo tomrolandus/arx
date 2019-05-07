@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="JAVA_MODULE" version="4">
+  <component name="NewModuleRootManager" inherit-compiler-output="true">
+    <exclude-output />
+    <content url="file://$MODULE_DIR$">
+      <sourceFolder url="file://$MODULE_DIR$/example" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/gui" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/main" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/test" isTestSource="true" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="mahout" level="project" />
+    <orderEntry type="library" name="swt-4.2.1-win32-win32-x86" level="project" />
+    <orderEntry type="library" name="commons" level="project" />
+    <orderEntry type="library" name="xygraph" level="project" />
+    <orderEntry type="library" name="swt-4.2.1-win32-win32-x86_64" level="project" />
+    <orderEntry type="library" name="swtknob-1.0.0" level="project" />
+    <orderEntry type="library" name="widgets-1.0.0.201511041902" level="project" />
+    <orderEntry type="library" name="hppc-0.6.0" level="project" />
+    <orderEntry type="library" name="runtime-3.8.0" level="project" />
+    <orderEntry type="library" name="swtrangeslider-0.0.1" level="project" />
+    <orderEntry type="library" name="jhpl-0.0.1" level="project" />
+    <orderEntry type="library" name="xygraph-1.0.0.201511041902" level="project" />
+    <orderEntry type="library" name="libjhc-1.0.0-swt" level="project" />
+    <orderEntry type="library" name="swtchart-0.8.0.v20120301" level="project" />
+    <orderEntry type="library" name="core-1.1.0" level="project" />
+    <orderEntry type="library" name="swtknob-1.0.01" level="project" />
+    <orderEntry type="library" name="swtsimplebrowser-0.0.11" level="project" />
+    <orderEntry type="library" name="exp4j-0.4.8" level="project" />
+    <orderEntry type="library" name="org.eclipse.draw2d_3.8.1.201301141834" level="project" />
+    <orderEntry type="library" name="jface-3.8.102" level="project" />
+    <orderEntry type="library" name="jhpl-0.0.11" level="project" />
+    <orderEntry type="library" name="swttiles-0.0.1" level="project" />
+    <orderEntry type="library" name="swttable-0.0.1" level="project" />
+    <orderEntry type="library" name="swtchart" level="project" />
+    <orderEntry type="library" name="pdfbox" level="project" />
+    <orderEntry type="library" name="objectselector-0.1-lib" level="project" />
+    <orderEntry type="library" name="log4j-1.2.17" level="project" />
+    <orderEntry type="library" name="swt-4.2.1-gtk-linux-x86" level="project" />
+    <orderEntry type="library" name="swtsimplebrowser-0.0.1" level="project" />
+    <orderEntry type="library" name="newtonraphson-0.0.11" level="project" />
+    <orderEntry type="library" name="smile-1.3.1" level="project" />
+    <orderEntry type="library" name="swt" level="project" />
+    <orderEntry type="library" name="univocity-parsers-2.4.1" level="project" />
+    <orderEntry type="library" name="org.eclipse.nebula.widgets.nattable.core_1.1.0.201405012245" level="project" />
+    <orderEntry type="library" name="jface" level="project" />
+    <orderEntry type="library" name="swtpreferences-0.0.1" level="project" />
+    <orderEntry type="library" name="newtonraphson-0.0.1" level="project" />
+    <orderEntry type="library" name="swt-4.2.1-gtk-linux-x86_64" level="project" />
+    <orderEntry type="library" name="swttiles-0.0.11" level="project" />
+    <orderEntry type="library" name="swtchoicesdialog-0.0.11" level="project" />
+    <orderEntry type="library" name="swtrangeslider-0.0.11" level="project" />
+    <orderEntry type="library" name="libjhc-swt" level="project" />
+    <orderEntry type="library" name="swttable-0.0.11" level="project" />
+    <orderEntry type="library" name="swt-4.2.1-cocoa-macosx-x86_64" level="project" />
+    <orderEntry type="library" name="swtpreferences-0.0.11" level="project" />
+    <orderEntry type="library" name="junit" level="project" />
+    <orderEntry type="library" name="common-3.6.100" level="project" />
+    <orderEntry type="library" name="poi" level="project" />
+    <orderEntry type="library" name="smile-1.3.1-java7" level="project" />
+    <orderEntry type="library" name="swtchoicesdialog-0.0.1" level="project" />
+    <orderEntry type="library" name="objectselector-lib" level="project" />
+    <orderEntry type="library" name="colt-1.2.0" level="project" />
+  </component>
+</module>
