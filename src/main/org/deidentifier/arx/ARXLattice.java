@@ -1146,7 +1146,6 @@ public class ARXLattice implements Serializable {
         int size = 0;
         int maxlevel = 0;
         for (LongIterator iterator = solutions.getMaterializedTransformations(); iterator.hasNext();) {
-            
             Transformation transformation = solutions.getTransformation(iterator.next());
             if (!levels.containsKey(transformation.getLevel())) {
                 levels.put(transformation.getLevel(), new ArrayList<ARXNode>());
@@ -1194,7 +1193,6 @@ public class ARXLattice implements Serializable {
                 this.levels[i] = new ARXNode[0];
             }
         }
-        
         // Create relationships
         for (LongIterator iterator = solutions.getMaterializedTransformations(); iterator.hasNext();) {
             createRelationships(solutions, iterator.next());

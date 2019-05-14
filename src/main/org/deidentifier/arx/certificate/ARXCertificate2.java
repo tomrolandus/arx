@@ -16,18 +16,6 @@
  */
 package org.deidentifier.arx.certificate;
 
-import org.apache.pdfbox.pdmodel.PDDocument;
-import org.deidentifier.arx.*;
-import org.deidentifier.arx.ARXLattice.ARXNode;
-import org.deidentifier.arx.ARXLattice.Anonymity;
-import org.deidentifier.arx.certificate.CertificateStyle.ListStyle;
-import org.deidentifier.arx.certificate.elements.*;
-import org.deidentifier.arx.certificate.resources.Watermark;
-import org.deidentifier.arx.criteria.PrivacyCriterion;
-import org.deidentifier.arx.io.CSVDataChecksum;
-import org.deidentifier.arx.io.CSVSyntax;
-import rst.pdfbox.layout.elements.Document;
-
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -36,13 +24,34 @@ import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.pdfbox.pdmodel.PDDocument;
+import org.deidentifier.arx.ARXConfiguration;
+import org.deidentifier.arx.ARXLattice.ARXNode;
+import org.deidentifier.arx.ARXLattice.Anonymity;
+import org.deidentifier.arx.ARXResult;
+import org.deidentifier.arx.DataDefinition;
+import org.deidentifier.arx.DataHandle;
+import org.deidentifier.arx.certificate.CertificateStyle.ListStyle;
+import org.deidentifier.arx.certificate.elements.Element;
+import org.deidentifier.arx.certificate.elements.ElementData;
+import org.deidentifier.arx.certificate.elements.ElementList;
+import org.deidentifier.arx.certificate.elements.ElementNewLine;
+import org.deidentifier.arx.certificate.elements.ElementSubtitle;
+import org.deidentifier.arx.certificate.elements.ElementTitle;
+import org.deidentifier.arx.certificate.resources.Watermark;
+import org.deidentifier.arx.criteria.PrivacyCriterion;
+import org.deidentifier.arx.io.CSVDataChecksum;
+import org.deidentifier.arx.io.CSVSyntax;
+
+import rst.pdfbox.layout.elements.Document;
+
 /**
  * A PDF document
  * 
  * @author Annika Saken
  * @author Fabian Prasser
  */
-public class ARXCertificate { // NO_UCD
+public class ARXCertificate2 { // NO_UCD
 
     /**
      * Creates a new instance
@@ -54,14 +63,14 @@ public class ARXCertificate { // NO_UCD
      * @param output
      */
     public static ARXCertificate create(DataHandle input, DataDefinition definition,
-                                        ARXConfiguration config, ARXResult result, ARXNode transformation, DataHandle output) {
+                ARXConfiguration config, ARXResult result, ARXNode transformation, DataHandle output) {
         return ARXCertificate.create(input, definition, config, result, transformation, output, null);
     }
 
     /**
      * Renders the document into the given output stream.
      * Includes a SHA-256 checksum of the output data.
-     *
+     * 
      * @param input
      * @param definition
      * @param config
@@ -83,7 +92,7 @@ public class ARXCertificate { // NO_UCD
     /**
      * Renders the document into the given output stream.
      * Includes a SHA-256 checksum of the output data and user defined metadata
-     *
+     * 
      * @param input
      * @param definition
      * @param config
@@ -108,7 +117,7 @@ public class ARXCertificate { // NO_UCD
     private final CertificateStyle style;
     /** Elements*/
     private final List<Element> elements = new ArrayList<Element>();
-
+	
     /**
      * Creates a new instance
      * @param input
@@ -117,12 +126,12 @@ public class ARXCertificate { // NO_UCD
      * @param result
      * @param transformation
      * @param output
-     * @param csvConfig
+     * @param csvConfig 
      * @param metadata
      */
-    ARXCertificate(DataHandle input, DataDefinition definition,
-                   ARXConfiguration config, ARXResult result,
-                   ARXNode transformation, DataHandle output,
+    ARXCertificate2(DataHandle input, DataDefinition definition,
+                   ARXConfiguration config, ARXResult result, 
+                   ARXNode transformation, DataHandle output, 
                    CSVSyntax csvConfig, ElementData metadata) {
         
         this.style = CertificateStyle.create();
@@ -182,18 +191,6 @@ public class ARXCertificate { // NO_UCD
                     this.add(asList(c.render()));
                 }
             }
-            this.add(new ElementSubtitle((section++)+". Risk analysis"));
-            this.add(new ElementNewLine());
-//            this.add(new ElementData("this is a test"));
-            ARXPopulationModel populationmodel = ARXPopulationModel.create(ARXPopulationModel.Region.USA);
-            DataHandle temp_handle = result.getOutput(transformation);
-            String prosecutorRisk = String.valueOf(temp_handle.getRiskEstimator(populationmodel).getSampleBasedReidentificationRisk().getEstimatedProsecutorRisk());
-            String journalistRisk = String.valueOf(temp_handle.getRiskEstimator(populationmodel).getSampleBasedReidentificationRisk().getEstimatedJournalistRisk());
-            String marketerRisk = String.valueOf(temp_handle.getRiskEstimator(populationmodel).getSampleBasedReidentificationRisk().getEstimatedMarketerRisk());
-            this.add(new ElementData("Prosecutor risk: " + prosecutorRisk));
-            this.add(new ElementData("journalist risk: " + journalistRisk));
-            this.add(new ElementData("Marketer risk: " + marketerRisk));
-
         }
     }
 
@@ -228,8 +225,8 @@ public class ARXCertificate { // NO_UCD
         
         // Load and watermark
         PDDocument pdDocument = PDDocument.load(tmp);
-//        Watermark watermark = new Watermark(pdDocument);
-//        watermark.mark(pdDocument);
+        Watermark watermark = new Watermark(pdDocument);
+        watermark.mark(pdDocument);
         
         // Save
         pdDocument.save(stream);
