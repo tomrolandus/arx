@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="mahout">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/lib/ant/mahout/mahout-math-0.11.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/ant/mahout/slf4j-api-1.7.13.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/ant/mahout/guava-18.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/ant/mahout/mahout-core-0.9.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/ant/mahout/hadoop-core-1.2.1.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

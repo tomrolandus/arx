@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="hppc-0.6.0">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/lib/ant/hppc/hppc-0.6.0.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

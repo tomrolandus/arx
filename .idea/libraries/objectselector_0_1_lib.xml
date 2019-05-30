@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="objectselector-0.1-lib">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/lib/ant/objectselector/objectselector-0.1-lib.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

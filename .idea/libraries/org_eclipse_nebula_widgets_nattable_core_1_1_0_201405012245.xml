@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="org.eclipse.nebula.widgets.nattable.core_1.1.0.201405012245">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/lib/ant/nattable/org.eclipse.nebula.widgets.nattable.core_1.1.0.201405012245.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

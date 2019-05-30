@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="libjhc-swt">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/lib/de/linearbits/libjhc/swt/libjhc-swt.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

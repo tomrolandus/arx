@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="xygraph">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/lib/ant/xygraph/org.eclipse.nebula.visualization.widgets_1.0.0.201511041902.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/ant/xygraph/org.eclipse.nebula.visualization.xygraph_1.0.0.201511041902.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

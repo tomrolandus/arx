@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="objectselector-lib">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/lib/de/linearbits/objectselector/lib/objectselector-lib.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

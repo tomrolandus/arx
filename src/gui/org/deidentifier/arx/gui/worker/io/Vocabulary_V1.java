@@ -76,7 +76,7 @@ public class Vocabulary_V1 extends Vocabulary {
 	
 	@Override
 	public String getCriteria(){
-		return "criteria"; //$NON-NLS-1$
+		return "src/main/org.deidentifier.arx/criteria"; //$NON-NLS-1$
 	}
 	
 	@Override
@@ -191,7 +191,7 @@ public class Vocabulary_V1 extends Vocabulary {
 
 	@Override
 	public String getMetric(){
-		return "metric"; //$NON-NLS-1$
+		return "src/main/org.deidentifier.arx/metric"; //$NON-NLS-1$
 	}
 
 	@Override

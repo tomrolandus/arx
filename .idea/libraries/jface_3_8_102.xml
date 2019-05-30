@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="jface-3.8.102">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/lib/org/eclipse/jface/3.8.102/jface-3.8.102.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

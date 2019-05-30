@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="org.eclipse.draw2d_3.8.1.201301141834">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/lib/ant/draw2d/org.eclipse.draw2d_3.8.1.201301141834.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

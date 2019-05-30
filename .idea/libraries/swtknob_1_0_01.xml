@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="swtknob-1.0.01">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/lib/ant/swtknob/swtknob-1.0.0.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

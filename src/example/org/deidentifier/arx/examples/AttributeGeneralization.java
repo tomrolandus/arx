@@ -17,10 +17,10 @@
 
 package org.deidentifier.arx.examples;
 
-import jdk.swing.interop.SwingInterOpUtils;
+//import jdk.swing.interop.SwingInterOpUtils;
 import org.deidentifier.arx.*;
 import org.deidentifier.arx.AttributeType.Hierarchy;
-import org.deidentifier.arx.Tom.NodeAndRisks;
+import org.deidentifier.arx.Smooth.SmoothNode;
 import org.deidentifier.arx.criteria.KAnonymity;
 import org.deidentifier.arx.io.CSVHierarchyInput;
 import org.deidentifier.arx.metric.Metric;
@@ -69,7 +69,12 @@ public class AttributeGeneralization extends Example {
 
         // Create definition
         File testDir = new File("data/");
+        System.out.println(testDir.getName());
         File[] genHierFiles = testDir.listFiles(hierarchyFilter);
+        for(File f: genHierFiles){
+            System.out.println(f.getName());
+
+        }
         Pattern pattern = Pattern.compile("_hierarchy_(.*?).csv");
         for (File file : genHierFiles) {
             Matcher matcher = pattern.matcher(file.getName());
@@ -79,7 +84,6 @@ public class AttributeGeneralization extends Example {
                 data.getDefinition().setAttributeType(attributeName, Hierarchy.create(hier.getHierarchy()));
             }
         }
-
         return data;
     }
 
@@ -111,8 +115,11 @@ public class AttributeGeneralization extends Example {
 //            analyzeData(data.getHandle());
 //            data.getHandle().release();
         ARXResult result = anonymizer.anonymize(data, config);
-        showGeneralizations(populationmodel,result,result.getGlobalOptimum());
-        result.getOutput(false).save("data/tom_test2.csv", ',');
+//        showGeneralizations(populationmodel,result,result.getGlobalOptimum());
+//        result.getOutput(false).save("data/tom_test2.csv", ',');
+        ARXLattice.ARXNode bottomNode = result.getLattice().getBottom();
+        bottomNode.expand();
+        System.out.println(bottomNode.getSuccessors().length);
         // Perform risk analysis
 //        System.out.println("- Output data");
 ////        print(result.getOutput());
@@ -142,7 +149,7 @@ public class AttributeGeneralization extends Example {
 //        showGeneralizationsSuccessors(populationmodel,result,nodeBottom, 2,0);
 
 
-//        ArrayList<NodeAndRisks> listOutput = new ArrayList<>();
+//        ArrayList<SmoothNode> listOutput = new ArrayList<>();
 //        showGeneralizationsPerLevel(populationmodel,result,nodeBottom,1,0, nodeBottom, listOutput);
 //        System.out.println("list output size: " +listOutput.size());
 
@@ -203,7 +210,7 @@ public class AttributeGeneralization extends Example {
 
     }
 
-    private static void showGeneralizationsPerLevel (ARXPopulationModel populationmodel, ARXResult result, ARXLattice.ARXNode node, int level , int currentDepth, ARXLattice.ARXNode currentNode, ArrayList<NodeAndRisks> listOutput){
+    private static void showGeneralizationsPerLevel (ARXPopulationModel populationmodel, ARXResult result, ARXLattice.ARXNode node, int level , int currentDepth, ARXLattice.ARXNode currentNode, ArrayList<SmoothNode> listOutput){
         if(currentDepth > level+1){
 //            System.out.println("currentDepth > level+1: " +currentDepth);
             return;
@@ -213,7 +220,7 @@ public class AttributeGeneralization extends Example {
         if (currentDepth == level){
             System.out.println("Current depth == level");
             double[] risks = getMixedRisks(populationmodel,result,node);
-            NodeAndRisks currentNodeRisks  = new NodeAndRisks(node, risks);
+            SmoothNode currentNodeRisks  = new SmoothNode(node, risks);
             listOutput.add(currentNodeRisks);
             showGeneralizations(populationmodel,result, node);
 
@@ -229,7 +236,7 @@ public class AttributeGeneralization extends Example {
 //                    System.out.println("Predecessor is diff than current node");
                     pred.expand();
                     double[] risks = getMixedRisks(populationmodel,result,pred);
-                    NodeAndRisks currentNodeRisks  = new NodeAndRisks(pred, risks);
+                    SmoothNode currentNodeRisks  = new SmoothNode(pred, risks);
                     listOutput.add(currentNodeRisks);
 //                    showGeneralizations(populationmodel,result, pred);
 

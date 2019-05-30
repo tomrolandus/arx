@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="libjhc-1.0.0-swt">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/lib/ant/jhc/libjhc-1.0.0-swt.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

@@ -100,8 +100,10 @@ public class Example7 extends Example {
 
         // Now anonymize
         ARXResult result = anonymizer.anonymize(data, config);
-
-        // Print info
+//        result.getOutput().save("test_csv_23may");
+        // Print infoe
+        result.getOutput().writeDataToJSON("default");
+        result.getOutput().writeHeaderToJSON("default");
         printResult(result, data);
 
         // Process results

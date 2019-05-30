@@ -1235,8 +1235,9 @@ public class Controller implements IView {
 
         // Save
         try {
-            final CSVDataOutput out = new CSVDataOutput(file, model.getCSVSyntax());
-            out.write(hierarchy.getHierarchy());
+            //TODO why does this give an error ?
+//            final CSVDataOutput out = new CSVDataOutput(file, model.getCSVSyntax());
+//            out.write(hierarchy.getHierarchy());
 
         } catch (final Exception e) {
             main.showErrorDialog(main.getShell(),
@@ -2104,16 +2105,17 @@ public class Controller implements IView {
         model.getInputConfig().setInput(data);
 
         // Nothing to fix
-        if (config instanceof ImportConfigurationCSV) {
-            ImportConfigurationCSV csvconfig = (ImportConfigurationCSV) config;
-            model.setInputBytes(new File((csvconfig).getFileLocation()).length());
-            model.getCSVSyntax().setDelimiter(csvconfig.getDelimiter());
-            model.getCSVSyntax().setEscape(csvconfig.getEscape());
-            model.getCSVSyntax().setLinebreak(csvconfig.getLinebreak());
-            model.getCSVSyntax().setQuote(csvconfig.getQuote());
-        } else {
-            model.setInputBytes(0);
-        }
+        //TODO why does this give an error?
+//        if (config instanceof ImportConfigurationCSV) {
+//            ImportConfigurationCSV csvconfig = (ImportConfigurationCSV) config;
+//            model.setInputBytes(new File((csvconfig).getFileLocation()).length());
+//            model.getCSVSyntax().setDelimiter(csvconfig.getDelimiter());
+//            model.getCSVSyntax().setEscape(csvconfig.getEscape());
+//            model.getCSVSyntax().setLinebreak(csvconfig.getLinebreak());
+//            model.getCSVSyntax().setQuote(csvconfig.getQuote());
+//        } else {
+//            model.setInputBytes(0);
+//        }
 
         // Create definition
         final DataDefinition definition = model.getInputDefinition();

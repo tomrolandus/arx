@@ -8,10 +8,28 @@
       <sourceFolder url="file://$MODULE_DIR$/src/example" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/gui" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/test" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src/main/org.deidentifier.arx/deidentifier/arx" type="java-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/src/main" isTestSource="false" />
       <excludeFolder url="file://$MODULE_DIR$/target" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="Maven: com.typesafe.akka:akka-http-jackson_2.12:10.1.8" level="project" />
+    <orderEntry type="library" name="Maven: org.scala-lang:scala-library:2.12.8" level="project" />
+    <orderEntry type="library" name="Maven: com.typesafe.akka:akka-http_2.12:10.1.8" level="project" />
+    <orderEntry type="library" name="Maven: com.typesafe.akka:akka-http-core_2.12:10.1.8" level="project" />
+    <orderEntry type="library" name="Maven: com.typesafe.akka:akka-parsing_2.12:10.1.8" level="project" />
+    <orderEntry type="library" name="Maven: com.typesafe.akka:akka-stream_2.12:2.5.19" level="project" />
+    <orderEntry type="library" name="Maven: com.typesafe.akka:akka-actor_2.12:2.5.19" level="project" />
+    <orderEntry type="library" name="Maven: com.typesafe:config:1.3.3" level="project" />
+    <orderEntry type="library" name="Maven: org.scala-lang.modules:scala-java8-compat_2.12:0.8.0" level="project" />
+    <orderEntry type="library" name="Maven: com.typesafe.akka:akka-protobuf_2.12:2.5.19" level="project" />
+    <orderEntry type="library" name="Maven: org.reactivestreams:reactive-streams:1.0.2" level="project" />
+    <orderEntry type="library" name="Maven: com.typesafe:ssl-config-core_2.12:0.3.6" level="project" />
+    <orderEntry type="library" name="Maven: org.scala-lang.modules:scala-parser-combinators_2.12:1.1.1" level="project" />
+    <orderEntry type="library" name="Maven: com.fasterxml.jackson.core:jackson-core:2.9.6" level="project" />
+    <orderEntry type="library" name="Maven: com.fasterxml.jackson.core:jackson-annotations:2.9.6" level="project" />
+    <orderEntry type="library" name="Maven: com.fasterxml.jackson.core:jackson-databind:2.9.6" level="project" />
     <orderEntry type="library" name="Maven: com.googlecode.json-simple:json-simple:1.1.1" level="project" />
     <orderEntry type="library" name="Maven: colt:colt:1.2.0" level="project" />
     <orderEntry type="library" name="Maven: commons-io:commons-io:2.4" level="project" />

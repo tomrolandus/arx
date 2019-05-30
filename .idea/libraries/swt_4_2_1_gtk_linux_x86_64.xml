@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="swt-4.2.1-gtk-linux-x86_64">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/lib/org/eclipse/swt/4.2.1-gtk-linux-x86_64/swt-4.2.1-gtk-linux-x86_64.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

@@ -1,0 +1,36 @@
+[ {
+  "key" : "1",
+  "age" : "<50",
+  "gender" : "*",
+  "zipcode" : "81***"
+}, {
+  "key" : "2",
+  "age" : "<50",
+  "gender" : "*",
+  "zipcode" : "81***"
+}, {
+  "key" : "3",
+  "age" : ">=50",
+  "gender" : "*",
+  "zipcode" : "81***"
+}, {
+  "key" : "4",
+  "age" : ">=50",
+  "gender" : "*",
+  "zipcode" : "81***"
+}, {
+  "key" : "5",
+  "age" : "<50",
+  "gender" : "*",
+  "zipcode" : "81***"
+}, {
+  "key" : "6",
+  "age" : ">=50",
+  "gender" : "*",
+  "zipcode" : "81***"
+}, {
+  "key" : "7",
+  "age" : "<50",
+  "gender" : "*",
+  "zipcode" : "81***"
+} ]
