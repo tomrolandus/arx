@@ -5,6 +5,7 @@ import akka.actor.ActorSystem;
 import akka.http.javadsl.ConnectHttp;
 import akka.http.javadsl.Http;
 import akka.http.javadsl.ServerBinding;
+import akka.http.javadsl.marshallers.jackson.Jackson;
 import akka.http.javadsl.model.HttpRequest;
 import akka.http.javadsl.model.HttpResponse;
 import akka.http.javadsl.model.StatusCodes;
@@ -23,6 +24,7 @@ import org.deidentifier.arx.metric.Metric;
 import org.deidentifier.arx.risk.RiskEstimateBuilder;
 import org.deidentifier.arx.risk.RiskModelAttributes;
 import org.json.simple.JSONArray;
+import scala.util.parsing.json.JSON;
 
 import java.io.File;
 import java.io.FileWriter;
@@ -215,6 +217,7 @@ public class SmoothIO extends AllDirectives {
 //            analyzeData(data.getHandle());
 //            data.getHandle().release();
         result = anonymizer.anonymize(data, config);
+        currentDataHandle = result.getOutput(result.getLattice().getBottom());
 //        showGeneralizations(result.getLattice().getBottom());
 //        ArrayList<SmoothNode> nodes = getSuccessorsGeneralizingSameAttribute(0);
         //TODO make this a class var
@@ -347,6 +350,18 @@ public class SmoothIO extends AllDirectives {
         }
     }
 
+    public JSONArray getRiskJSONArray(){
+        //todo javadoc
+        JSONArray jarray =  new JSONArray();
+        jarray.add(this.currentDataHandle.getRiskEstimator(this.populationmodel).getSampleBasedReidentificationRisk().getMixedRisksJSONObject());
+        jarray.addAll(this.currentDataHandle.getRiskEstimator(this.populationmodel).getSampleBasedRiskDistribution().getRiskHistogramValuesJSON());
+        return jarray;
+    }
+
+    public void writeRisksJSON(String filename, JSONArray jarray){
+        writeJSONArray(jarray, filename);
+    }
+
 
     /**
      * Writes a JSON file with the data of the given node
@@ -418,7 +433,7 @@ public class SmoothIO extends AllDirectives {
     private void writeAllJSONs() {
         currentDataHandle.writeDataToJSON("data");
         currentDataHandle.writeHeaderToJSON("dataHeader");
-
+//        writeRisksJSON("");
         writeRecommendationsToJSON("recommendations");
 
         //todo current handle PJM risks to json
@@ -435,6 +450,7 @@ public class SmoothIO extends AllDirectives {
         }
         this.appliedRecommendations.add(node);
         currentDataHandle = result.getOutput(node.getNode());
+//        System.out.println(currentDataHandle.getRiskEstimator(populationmodel).getSampleBasedRiskDistribution());
         makeRecommendations("m", 99);
 
 
@@ -584,12 +600,22 @@ public class SmoothIO extends AllDirectives {
      */
     public void writeRecommendationsToJSON(String name) {
         //todo put the risks (PJM and distribution) in a JSONObject (method)
+        writeJSONArray(getRecommendationsJSONArray(), name);
+    }
+
+
+    /**
+     * get the JSONArray of the recommendations
+     *
+     * @return
+     */
+    public JSONArray getRecommendationsJSONArray() {
         ArrayList<SmoothNode> recs = this.recommendations;
         JSONArray jarray = new JSONArray();
         for (SmoothNode node : recs) {
             jarray.add(node.getJSONObject());
         }
-        writeJSONArray(jarray, name);
+        return jarray;
     }
 
     public void removeRecommendation(int hash) {
@@ -609,7 +635,6 @@ public class SmoothIO extends AllDirectives {
         final ActorMaterializer materializer = ActorMaterializer.create(system);
 
 
-
         final Flow<HttpRequest, HttpResponse, NotUsed> routeFlow = this.appRoute().flow(system, materializer);
         final CompletionStage<ServerBinding> binding = http.bindAndHandle(routeFlow,
                 ConnectHttp.toHost("localhost", 8080), materializer);
@@ -626,7 +651,8 @@ public class SmoothIO extends AllDirectives {
         return concat(
                 path("hello", () ->
                         get(() ->
-                                complete(this.recommendations.get(0).getJSONObject().toString()))));
+//                                complete(StatusCodes.OK, new SmoothNode(11), Jackson.<SmoothNode>marshaller()))));
+                                complete(StatusCodes.OK, getRiskJSONArray().toJSONString()))));
     }
 }
 

@@ -57,11 +57,14 @@ public class RiskModelSampleRisks extends RiskModelSample {
         risk.put("prosecutor",getEstimatedProsecutorRisk());
         risk.put("journalist", getEstimatedJournalistRisk());
         risk.put("marketer", getEstimatedMarketerRisk());
+        JSONObject ouput = new JSONObject();
+
 
         return risk;
     }
 
     public void printMixedRisksJSON(String name){
+        //todo create method for getting the risks as json object
         try (FileWriter file = new FileWriter(name +".json")) {
 
             file.write(getMixedRisksJSONObject().toJSONString());

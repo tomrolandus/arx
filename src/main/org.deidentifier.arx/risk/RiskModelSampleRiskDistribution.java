@@ -166,7 +166,11 @@ public class RiskModelSampleRiskDistribution {
         return recordsAtCumulativeRisk[index];
     }
 
-    public JSONArray getRiskHistogramValuesJSON(String fileName){
+    /**
+     * returns a JSONArray with the objects cumulativeRisk and atRisk
+     * @return
+     */
+    public JSONArray getRiskHistogramValuesJSON(){
         JSONObject cumulativeRisks = new JSONObject();
         for (int i = 0; i < this.recordsAtCumulativeRisk.length;i++){
             cumulativeRisks.put("bin" + i ,this.recordsAtCumulativeRisk[i]);
@@ -201,7 +205,7 @@ public class RiskModelSampleRiskDistribution {
     }
 
     public void printHistogramValuesJSON(String fileName){
-        JSONArray jsonObjects = getRiskHistogramValuesJSON(fileName);
+        JSONArray jsonObjects = getRiskHistogramValuesJSON();
         try (FileWriter file = new FileWriter( fileName+".json")) {
 
             file.write(jsonObjects.toJSONString());

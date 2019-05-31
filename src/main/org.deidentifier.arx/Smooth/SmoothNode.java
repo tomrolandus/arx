@@ -49,14 +49,17 @@ public class SmoothNode<node, prosecutorScore, journalistScore, marketerScore> {
 
 
     @JsonCreator
-    public SmoothNode(@JsonProperty("node") ARXLattice.ARXNode node,@JsonProperty("risks") double[] risks){
+    public SmoothNode(@JsonProperty("hashcode") int hashcode){
+        this.hashCode = hashcode;
+    }
+
+    public SmoothNode(ARXLattice.ARXNode node,double[] risks){
         this.node = node;
         this.risks = risks;
     }
 
 
-    @JsonCreator
-    public SmoothNode(ARXLattice.ARXNode node, @JsonProperty("risks") double[] risks, int attributeIndex, String attributeName, int generalizationLevel, int maxLevel){
+    public SmoothNode(ARXLattice.ARXNode node, double[] risks, int attributeIndex, String attributeName, int generalizationLevel, int maxLevel){
         this.node = node;
         this.risks = risks;
         this.attributeIndex = attributeIndex;
